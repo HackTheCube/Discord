@@ -1,0 +1,10 @@
+main: be.hackthecube.discord.Main
+
+name: ${project.name}
+author: HackTheCube
+
+version: ${project.version}
+api-version: 1.20
+
+prefix: Discord
+website: ${project.url}
