@@ -16,7 +16,7 @@ public class GuildMemberJoin extends ListenerAdapter {
 				new Embed()
 					.setDescription(String.format(
 							"%s Bienvenue à %s sur **HackTheCube** !"
-							+ "\n\n" + "~~----------------------------------------~~",
+							+ "\n" + "~~-------------------------------------------------------~~",
 							EmoteID.CHECK.getEmote(), event.getMember().getAsMention()
 					))
 				
