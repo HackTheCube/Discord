@@ -2,6 +2,8 @@ package be.hackthecube.discord;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import be.hackthecube.discord.listeners.member.GuildMemberJoin;
+import be.hackthecube.discord.listeners.member.GuildMemberRemove;
 import be.hackthecube.discord.utilities.ConfigManager;
 import be.hackthecube.discord.utilities.annotation.Annotation;
 import net.dv8tion.jda.api.JDA;
@@ -30,7 +32,10 @@ public class Main extends JavaPlugin {
 		discordAPI = JDABuilder.createDefault(getConfigManager().getToken())
 				.setStatus(getConfigManager().getOnlineStatus())
 				.setActivity(getConfigManager().getDiscordActivity())
-				.addEventListeners()
+				.addEventListeners(
+						new GuildMemberJoin(),
+						new GuildMemberRemove()
+				)
 				.build();
 	}
 	
