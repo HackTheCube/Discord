@@ -8,6 +8,7 @@ import be.hackthecube.discord.utilities.ConfigManager;
 import be.hackthecube.discord.utilities.annotation.Annotation;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Main extends JavaPlugin {
 
@@ -18,6 +19,7 @@ public class Main extends JavaPlugin {
 	
 		// -------------------- \\
 	
+	@Override
 	public void onEnable() {
 		instance = this;
 		configManager = new ConfigManager();
@@ -32,6 +34,7 @@ public class Main extends JavaPlugin {
 		discordAPI = JDABuilder.createDefault(getConfigManager().getToken())
 				.setStatus(getConfigManager().getOnlineStatus())
 				.setActivity(getConfigManager().getDiscordActivity())
+				.enableIntents(GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_PRESENCES, GatewayIntent.MESSAGE_CONTENT)
 				.addEventListeners(
 						new GuildMemberJoin(),
 						new GuildMemberRemove()
