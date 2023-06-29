@@ -1,6 +1,5 @@
 package be.hackthecube.discord.utilities.enumeration;
 
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.entities.emoji.EmojiUnion;
 
@@ -34,7 +33,7 @@ public enum EmoteID {
 	
 		// -------------------- \\
 	
-	public EmojiUnion getEmote(Guild guild) {
+	public EmojiUnion getEmote() {
 		return Emoji.fromFormatted(emoteID);
 	}
 	
