@@ -12,7 +12,7 @@ public class GuildMemberRemove extends ListenerAdapter {
 	public void onGuildMemberRemove(GuildMemberRemoveEvent event) {
 		ChannelID.HOME.getTextChannel(event.getGuild()).sendMessageEmbeds(
 				new Embed()
-					.setDescription(String.format("%s A bientôt %s sur **HackTheCube** !", EmoteID.CROSS.getEmote(), event.getMember().getAsMention()))
+					.setDescription(String.format("%s A bientôt `%s` sur **HackTheCube** !", EmoteID.CROSS.getEmote(), event.getUser().getName()))
 					.addField(String.format("%s | **Membre**", EmoteID.DOWN_VOTE.getEmote()), String.format("`#%s`", event.getGuild().getMemberCount()), true)
 					
 					.build()

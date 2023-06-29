@@ -15,14 +15,15 @@ public class GuildMemberJoin extends ListenerAdapter {
 		ChannelID.HOME.getTextChannel(event.getGuild()).sendMessageEmbeds(
 				new Embed()
 					.setDescription(String.format(
-							"%s Bienvenue à %s sur **HackTheCube** !",
+							"%s Bienvenue à %s sur **HackTheCube** !"
+							+ "\n\n" + "~~----------------------------------------~~",
 							EmoteID.CHECK.getEmote(), event.getMember().getAsMention()
 					))
 				
 					.addField(String.format("%s | **Nom d'utilisateur**", EmoteID.USER.getEmote()), String.format("`%s`", event.getUser().getName()), true)
 					.addField(String.format("%s | **Identifiant**", EmoteID.HASHTAG.getEmote()), String.format("`%s`", event.getUser().getIdLong()), true)
-					.addField(String.format("%s | **Robot**", EmoteID.BOT.getEmote()), (event.getUser().isBot() ? String.format("Oui %s", EmoteID.CHECK.getEmote()) : String.format("Non %s", EmoteID.CROSS.getEmote())), true)
-					.addField(String.format("%s | **Date de création**", EmoteID.CLOCK.getEmote()), String.format("`%s`", event.getUser().getTimeCreated().format(DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss"))), false)
+					.addField(String.format("%s | **Robot**", EmoteID.BOT.getEmote()), (event.getUser().isBot() ? String.format("%s", EmoteID.CHECK.getEmote()) : String.format("%s", EmoteID.CROSS.getEmote())), true)
+					.addField(String.format("%s | **Date de création**", EmoteID.CLOCK.getEmote()), String.format("`%s`", event.getUser().getTimeCreated().format(DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss"))), true)
 					.addField(String.format("%s | **Membre**", EmoteID.UP_VOTE.getEmote()), String.format("`#%s`", event.getGuild().getMemberCount()), true)
 					
 					.setThumbnail(event.getMember().getAvatarUrl())
